@@ -11,6 +11,15 @@ const soundPaths = {
     16: "./static/audio/bass-drum.wav",
 };
 
+const drumParent = document.querySelector(".drum-div")
+
+for (let i = 1; i <= 18; i++) {
+    const newDiv = document.createElement("div");
+    newDiv.className = "pad";
+    newDiv.id = `${i}`;
+    drumParent.appendChild(newDiv);
+}
+
 const playSound = (sound) => {
     const sounds = Object.keys(soundPaths);
     if (sounds.includes(sound)) {
