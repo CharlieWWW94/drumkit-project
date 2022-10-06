@@ -1,3 +1,4 @@
+//File paths for audio files
 const soundPaths = {
     2: "./static/audio/ride.wav",
     3: "./static/audio/floor-tom.wav",
@@ -13,6 +14,7 @@ const soundPaths = {
 
 const drumParent = document.querySelector(".drum-div")
 
+//Populate page with drumpad grid elements 
 for (let i = 1; i <= 18; i++) {
     const newDiv = document.createElement("div");
     newDiv.className = "pad";
@@ -20,6 +22,7 @@ for (let i = 1; i <= 18; i++) {
     drumParent.appendChild(newDiv);
 }
 
+//Reproduces sound on click
 const playSound = (sound) => {
     const sounds = Object.keys(soundPaths);
     if (sounds.includes(sound)) {
@@ -29,8 +32,8 @@ const playSound = (sound) => {
     };
 };
 
+//Cycles through each pad, adding event listener by id
 const drumZones = document.querySelectorAll(".pad")
-
 drumZones.forEach((drumZone) => {
     drumZone.addEventListener("click", () => {
         playSound(drumZone.id)
